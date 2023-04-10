@@ -1,12 +1,11 @@
 let numGenerado = parseInt(Math.random()* (10 - 1) + 1);
 
-function pedirNumUsuario(){
+function numDelUsuario(){
     let seccionPadre = document.querySelector("#seccionPadre")
-
-    let numUsuario = prompt('Ingrese un número entre el 1 y el 10')
+    let numUsuario = document.getElementById('inputNumUsuario')
     if (numUsuario > 0 && numUsuario <= 10){
         let numUserX = document.createElement("h4");
-        numUserX.innerHTML = `El número elegido es: ${numUsuario}`;
+        numUserX.innerHTML = `El número elegido es: ${numUsuario.value}`;
         seccionPadre.insertBefore(numUserX, btnNumPc);
     }
     else {
@@ -23,14 +22,17 @@ function generarNumAleatorio(){
 
 function verResultado(){
     let seccionPadre = document.querySelector("#seccionPadre")
-
-    if(pedirNumUsuario.numUsuario == numGenerado){
+    let a = numDelUsuario.numUsuario;
+    let b = numGenerado;
+    console.log(a)
+    console.log(b)
+    if(a === b){
         let resultado = document.createElement("h4");
         resultado.innerHTML = 'GANASTE';
         seccionPadre.append(resultado);
         
     }
-    else if (pedirNumUsuario.numUsuario < numGenerado){
+    else if (a < b){
         let resultado = document.createElement("h4");
         resultado.innerHTML = 'EL NUMERO QUE ELEGISTE ES MENOR'
         seccionPadre.append(resultado);
